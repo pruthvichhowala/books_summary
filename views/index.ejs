@@ -1,0 +1,47 @@
+<%- include("partials/header.ejs") %>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/main.css">
+        <title>BOOK SUMMARY</title>
+    </head>
+
+    <body>
+        <form action="/search" method="post" class="search-container">
+            <input type="text" id="search-input" name="search_book" placeholder="Search books..." />
+            <button id="search-button" type="submit">Search</button>
+        </form>
+        <!-- forEach loop for show all the data on front end . here data is comes from js file -->
+        <% data.forEach((data)=> {%>
+
+            <div class="books_data">
+                <img src="https://covers.openlibrary.org/b/isbn/<%= data.isbn %>-M.jpg " alt="book image" srcset="">
+                <!-- this all data extracted from data which are comes from database > js file > ejs  -->
+                <h2 class="sub-head" name="heading">
+                    <%= data.head %>
+                </h2>
+                <p class="book-summary" name="summary">
+                    <%= data.summary %>
+                </p>
+                <small><span class="date" name="date">
+                        <%= data.date %>
+                    </span><span class="ratings" name="ratings">
+                        Recommended : <%= data.ratings %>
+                    </span></small>
+
+                <div class = "crud_btn_group">
+                    <a href="/edit/<%= data.id %>" class="edit_btn crud_btn">Edit</a>
+                    <form action="/delete/<%= data.id %>" class="delete_form" method="post">
+                        <button type="submit" class="delete_btn crud_btn individual_delete">Delete</button>
+                    </form>
+                </div>
+            </div>
+            <% }) %>
+                <!-- if user click on add book btn it's redirect form.ejs -->
+                <a href="/form" class="btn-add-book">Add Book</a>
+    </body>
+
+    </html>

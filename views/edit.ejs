@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/edit_delete.css">
+    <title>edit book summary</title>
+</head>
+
+<body>
+
+    <div class="edit_page">
+        <form action="/edit/<%= details.id %>" method="post">
+            <h1 class="edit-head">
+                Edit about Books Summary
+            </h1>
+
+            <label for="heading">Edit your book heading .</label>
+            <input type="text" name="heading" id="heading" value="<%= details.head %>">
+
+            <label for="summary"> Edit Book Summary</label>
+            <textarea name="summary" id="summary" required><%= details.summary %></textarea>
+
+            <!-- <label for="date">Date</label>
+            <input type="date" value=" details.date " name="date" id="date"> -->
+
+            <label for="ratings">Ratings (1 to 10)</label>
+            <input type="number" value="<%= details.ratings %>" name="ratings" id="ratings" min="1" max="10" step="1">
+
+            <label for="isbn">isbn</label>
+            <input type="text" value="<%= details.isbn %>" name="isbn" id="isbn">
+
+            <button class="submit" type="submit">submit</button>
+
+        </form>
+    </div>
+</body>
+
+</html>

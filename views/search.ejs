@@ -1,0 +1,31 @@
+<%- include("partials/header.ejs") %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
+    <title>searched book</title>
+</head>
+<body>
+  <% data.forEach((data)=>{ %>
+    
+    <div class="books_data">
+            <img src="https://covers.openlibrary.org/b/isbn/<%= data.isbn %>-M.jpg " alt="book image" srcset="">
+            <!-- this all data extracted from data which are comes from database > js file > ejs  -->
+            <h2 class="sub-head">
+                <%= data.head %>
+            </h2>
+            <p class="book-summary">
+                <%= data.summary %>
+            </p>
+            <small><span class="date">
+                    <%= data.date %>
+                </span><span class="ratings">
+                    <%= data.ratings %>
+                </span></small>
+        </div>
+    <% }) %>
+
+</body>
+</html>

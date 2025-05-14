@@ -1,0 +1,40 @@
+<%- include("partials/header.ejs") %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/form.css">
+     <link rel="stylesheet" href="/main.css">
+    <title>form</title>
+</head>
+
+<body>
+    <!-- form if user add new books  -->
+    <div>
+        <h1>Add book summary.</h1>
+
+        <form action="/new" method="post" class="form-group">
+
+            <label for="heading">Write your book heading here.</label>
+            <input type="text" name="head" id="heading">
+
+            <label for="summary">Book Summary</label>
+            <textarea name="summary" id="summary" required></textarea>
+
+            <label for="date">Date</label>
+            <input type="date" name="date" id="date">
+
+            <label for="ratings">Ratings (1 to 10)</label>
+            <input type="number" name="ratings" id="ratings" min="1" max="10" step="1">
+
+            <label for="isbn">isbn</label>
+            <input type="text" name="isbn" id="isbn" >
+
+            <input  type="submit" value="Submit Summary">
+        </form>
+    </div>
+</body>
+
+</html>
