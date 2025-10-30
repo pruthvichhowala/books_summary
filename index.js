@@ -52,7 +52,7 @@ app.post("/search", async (req, res) => {
     // console.error(search_book);
     try { //select all data from book summary on user search book and based on head column.
         const result = await db.query(
-            "SELECT * FROM books_summary WHERE head LIKE '%' || $1 || '%'", //select all data where particular head.here we use like for mak ui userfriendly.
+            "SELECT * FROM books_summary WHERE head ILIKE '%' || $1 || '%'", //select all data where particular head.here we use like for mak ui userfriendly.
             [search_book.toLowerCase()] //makes it lower case.
         );
 
